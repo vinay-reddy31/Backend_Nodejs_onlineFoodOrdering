@@ -25,13 +25,13 @@ mongoose.connect(process.env.MONGO_URI)
   app.use('/product',productRoutes);
   app.use('/uploads',express.static('uploads'));
 
-const PORT=4000;
+const PORT=process.env.PORT || 4000;
 
 app.listen(PORT,()=>{
     console.log(`Server Started and running at ${PORT}`);
 })
 
 
-app.use('/home',(req,res)=>{
+app.use('/',(req,res)=>{
     res.send('<h1>Welcome to the Home Page');
 })
